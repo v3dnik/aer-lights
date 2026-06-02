@@ -118,65 +118,20 @@ const PRODUCTS: Product[] = [
 
 const chf = (n: number) => `CHF ${n.toFixed(2)}`;
 
-// ─── LOGO SVG — faithful reconstruction from the uploaded image ───────────────
-// The mark consists of:
-//   Group A: two curved strokes forming a peaked arch (like the letter A),
-//            running bottom-left → peak → bottom-right, with a crossing horizontal
-//   Group B: two diagonal strokes cutting top-left → bottom-right across the arch
-// All strokes have a gold-to-cream gradient matching the original.
+// ─── LOGO — uses the actual PNG uploaded by the user ─────────────────────────
 function AerMark({ size = 44 }: { size?: number }) {
-  const h = Math.round(size * 0.85);
   return (
-    <svg width={size} height={h} viewBox="0 0 100 85" fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ animation: "logoBreath 4s ease-in-out infinite", display:"block" }}>
-      <defs>
-        <linearGradient id="g_gold" x1="0" y1="0" x2="100" y2="85" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"  stopColor="#C8A96E"/>
-          <stop offset="40%" stopColor="#E8D5A8"/>
-          <stop offset="70%" stopColor="#F0E4C0"/>
-          <stop offset="100%" stopColor="#C8A96E"/>
-        </linearGradient>
-        <linearGradient id="g_cream" x1="0" y1="85" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"  stopColor="#EAD8B0"/>
-          <stop offset="50%" stopColor="#F5EDD8"/>
-          <stop offset="100%" stopColor="#D4B882"/>
-        </linearGradient>
-      </defs>
-
-      {/* ── ARCH GROUP (A-shape) ── */}
-      {/* Outer arch — gold, bottom-left up to peak, back down to bottom-right */}
-      <path
-        d="M 4 72  C 4 72, 22 8, 50 8  C 78 8, 96 72, 96 72"
-        stroke="url(#g_gold)" strokeWidth="4.5" strokeLinecap="round" fill="none"
-      />
-      {/* Inner arch — cream, slightly inset */}
-      <path
-        d="M 13 72  C 13 72, 28 18, 50 18  C 72 18, 87 72, 87 72"
-        stroke="url(#g_cream)" strokeWidth="3.5" strokeLinecap="round" fill="none"
-      />
-      {/* Crossbar of the A — horizontal line mid-height */}
-      <path
-        d="M 22 52  L 78 52"
-        stroke="url(#g_gold)" strokeWidth="4.5" strokeLinecap="round"
-      />
-      <path
-        d="M 26 58  L 74 58"
-        stroke="url(#g_cream)" strokeWidth="3.5" strokeLinecap="round"
-      />
-
-      {/* ── DIAGONAL GROUP (X-cross cutting through) ── */}
-      {/* Diagonal 1: top-left → bottom-right */}
-      <path
-        d="M 2 8  C 20 20, 55 45, 98 78"
-        stroke="url(#g_gold)" strokeWidth="4.5" strokeLinecap="round" fill="none"
-      />
-      {/* Diagonal 1 inner */}
-      <path
-        d="M 10 4  C 28 18, 60 44, 100 72"
-        stroke="url(#g_cream)" strokeWidth="3.5" strokeLinecap="round" fill="none"
-      />
-    </svg>
+    <img
+      src="/images/logo-mark.png"
+      alt="Aer Lights logo mark"
+      width={size}
+      height={size}
+      style={{
+        display: "block",
+        objectFit: "contain",
+        animation: "logoBreath 4s ease-in-out infinite",
+      }}
+    />
   );
 }
 
