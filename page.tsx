@@ -141,29 +141,47 @@ const PRODUCTS: Product[] = [
     accentColor:"#C8A96E",
     descDe:"Eine Symbiose aus skulpturaler Avantgarde und emotionaler Lichtarchitektur. Der sanft gerundete, organisch perforierte Diffusor ruht wie eine schwebende Wolke auf drei massiven, tiefschwarzen Beinen. LOUM bricht das Licht in ein weiches, warmes Leuchten und wirft ein majestätisches, radiales Schattenmuster auf den Boden. Ein exklusives Statement-Piece, das dem Raum eine kraftvolle, beruhigende Seele verleiht.",
     descEn:"A symbiosis of sculptural avant-garde and emotional light architecture. The softly rounded, organically perforated diffuser rests like a hovering cloud upon three massive, deep-black legs. LOUM refracts light into a soft, warm glow, casting a majestic radial shadow pattern across the floor. An exclusive statement piece that gives the room a powerful, calming soul.",
-    svgPath:`<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svgPath:`<svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <radialGradient id="lg_loum" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#F0DFB0"/>
-          <stop offset="55%" stop-color="#C8A96E" stop-opacity="0.85"/>
-          <stop offset="100%" stop-color="#8B6914" stop-opacity="0.2"/>
+        <radialGradient id="lg_loum" cx="50%" cy="45%" r="55%">
+          <stop offset="0%" stop-color="#FFF0C0"/>
+          <stop offset="40%" stop-color="#E8C878"/>
+          <stop offset="100%" stop-color="#A07830" stop-opacity="0.4"/>
         </radialGradient>
-        <filter id="glow_loum"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <radialGradient id="glow_loum_r" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFE090" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#C8A96E" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur_loum"><feGaussianBlur stdDeviation="4"/></filter>
       </defs>
-      <ellipse cx="100" cy="100" rx="68" ry="44" fill="url(#lg_loum)" opacity="0.92" filter="url(#glow_loum)"/>
-      <ellipse cx="100" cy="98" rx="60" ry="36" fill="none" stroke="rgba(200,169,110,0.35)" stroke-width="0.8"/>
-      <ellipse cx="100" cy="98" rx="40" ry="22" fill="none" stroke="rgba(200,169,110,0.2)" stroke-width="0.5"/>
-      <circle cx="72" cy="90" r="2.2" fill="rgba(200,169,110,0.5)"/>
-      <circle cx="85" cy="78" r="1.6" fill="rgba(200,169,110,0.4)"/>
-      <circle cx="100" cy="74" r="2.8" fill="rgba(240,220,160,0.55)"/>
-      <circle cx="116" cy="78" r="1.6" fill="rgba(200,169,110,0.4)"/>
-      <circle cx="128" cy="90" r="2.2" fill="rgba(200,169,110,0.5)"/>
-      <circle cx="118" cy="108" r="1.8" fill="rgba(200,169,110,0.38)"/>
-      <circle cx="82" cy="108" r="1.8" fill="rgba(200,169,110,0.38)"/>
-      <ellipse cx="100" cy="100" rx="16" ry="9" fill="rgba(255,225,160,0.3)"/>
-      <line x1="84" y1="140" x2="70" y2="222" stroke="#181818" stroke-width="4" stroke-linecap="round"/>
-      <line x1="100" y1="144" x2="100" y2="226" stroke="#181818" stroke-width="4" stroke-linecap="round"/>
-      <line x1="116" y1="140" x2="130" y2="222" stroke="#181818" stroke-width="4" stroke-linecap="round"/>
+      <!-- Glow halo behind lamp -->
+      <ellipse cx="80" cy="72" rx="60" ry="40" fill="url(#glow_loum_r)" filter="url(#blur_loum)"/>
+      <!-- Main dome body -->
+      <ellipse cx="80" cy="70" rx="58" ry="38" fill="url(#lg_loum)"/>
+      <!-- Perforation dots grid -->
+      <ellipse cx="80" cy="70" rx="52" ry="33" fill="none" stroke="rgba(255,220,120,0.5)" stroke-width="1.2"/>
+      <ellipse cx="80" cy="70" rx="38" ry="22" fill="none" stroke="rgba(255,220,120,0.35)" stroke-width="0.8"/>
+      <ellipse cx="80" cy="70" rx="22" ry="12" fill="none" stroke="rgba(255,220,120,0.25)" stroke-width="0.6"/>
+      <!-- Perforation holes -->
+      <circle cx="80" cy="42" r="2.5" fill="rgba(160,110,20,0.45)"/>
+      <circle cx="62" cy="52" r="2" fill="rgba(160,110,20,0.4)"/>
+      <circle cx="98" cy="52" r="2" fill="rgba(160,110,20,0.4)"/>
+      <circle cx="50" cy="68" r="2" fill="rgba(160,110,20,0.38)"/>
+      <circle cx="110" cy="68" r="2" fill="rgba(160,110,20,0.38)"/>
+      <circle cx="55" cy="84" r="2" fill="rgba(160,110,20,0.36)"/>
+      <circle cx="105" cy="84" r="2" fill="rgba(160,110,20,0.36)"/>
+      <circle cx="68" cy="94" r="1.8" fill="rgba(160,110,20,0.32)"/>
+      <circle cx="92" cy="94" r="1.8" fill="rgba(160,110,20,0.32)"/>
+      <!-- Inner bright core -->
+      <ellipse cx="80" cy="68" rx="18" ry="11" fill="rgba(255,240,180,0.55)"/>
+      <!-- Stem -->
+      <rect x="77" y="106" width="6" height="48" rx="3" fill="rgba(30,25,15,0.9)"/>
+      <!-- Three legs -->
+      <line x1="80" y1="148" x2="52" y2="186" stroke="#1a1510" stroke-width="5" stroke-linecap="round"/>
+      <line x1="80" y1="148" x2="80" y2="192" stroke="#1a1510" stroke-width="5" stroke-linecap="round"/>
+      <line x1="80" y1="148" x2="108" y2="186" stroke="#1a1510" stroke-width="5" stroke-linecap="round"/>
+      <!-- Floor shadow -->
+      <ellipse cx="80" cy="193" rx="36" ry="5" fill="rgba(200,169,110,0.12)"/>
     </svg>`,
   },
   {
@@ -173,20 +191,31 @@ const PRODUCTS: Product[] = [
     accentColor:"#B0C4CC",
     descDe:"Mathematische Perfektion trifft auf immersive Ästhetik. Die dynamisch in sich gedrehte Helix-Struktur inszeniert das Licht völlig neu. Jede einzelne, präzise geführte Schicht des 3D-Drucks bricht das Licht sanft und erzeugt faszinierende, fliessende Lichtwellen an Ihren Wänden. Ein Meisterwerk des parametrischen Designs auf einem minimalistischen, sandfarbenen Sockel.",
     descEn:"Mathematical perfection meets immersive aesthetics. The dynamically twisted helix structure orchestrates light in an entirely new way. Every single, precisely guided 3D-printed layer softly refracts the light, creating mesmerizing, fluid waves of illumination along your walls. A masterpiece of parametric design resting on a minimalist sand-toned base.",
-    svgPath:`<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svgPath:`<svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="glow_tor"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <radialGradient id="tor_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C8E0E8" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#7AAAB8" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur_tor"><feGaussianBlur stdDeviation="5"/></filter>
       </defs>
-      <ellipse cx="100" cy="125" rx="30" ry="85" fill="rgba(176,196,204,0.06)" filter="url(#glow_tor)"/>
-      ${[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i=>{
-        const y=48+i*13; const t=(i/12)*Math.PI*2;
-        const ox=Math.sin(t)*14; const w=36-Math.abs(i-6)*1.8;
-        const op=0.25+(i%2)*0.28;
-        return `<ellipse cx="${(100+ox).toFixed(1)}" cy="${y}" rx="${w.toFixed(1)}" ry="5.5" fill="none" stroke="rgba(176,196,204,${op.toFixed(2)})" stroke-width="1.8"/>`;
-      }).join("")}
-      <rect x="91" y="214" width="18" height="9" rx="2.5" fill="rgba(180,160,120,0.55)"/>
-      <rect x="95" y="207" width="10" height="10" rx="1.5" fill="rgba(180,160,120,0.32)"/>
-      <ellipse cx="100" cy="120" rx="12" ry="8" fill="rgba(176,196,204,0.18)" filter="url(#glow_tor)"/>
+      <!-- Glow core -->
+      <ellipse cx="80" cy="100" rx="45" ry="70" fill="url(#tor_glow)" filter="url(#blur_tor)"/>
+      <!-- Twisted helix rings — 11 rings, each offset to create twist -->
+      <ellipse cx="80" cy="36"  rx="38" ry="9"  fill="rgba(220,235,240,0.82)" stroke="rgba(176,196,204,0.6)" stroke-width="1"/>
+      <ellipse cx="88" cy="50"  rx="36" ry="8.5" fill="rgba(210,228,235,0.78)" stroke="rgba(176,196,204,0.55)" stroke-width="1"/>
+      <ellipse cx="93" cy="64"  rx="34" ry="8"  fill="rgba(200,220,228,0.75)" stroke="rgba(176,196,204,0.5)" stroke-width="1"/>
+      <ellipse cx="90" cy="78"  rx="35" ry="8.5" fill="rgba(210,228,235,0.8)"  stroke="rgba(176,196,204,0.55)" stroke-width="1"/>
+      <ellipse cx="82" cy="92"  rx="37" ry="9"  fill="rgba(218,232,238,0.82)" stroke="rgba(176,196,204,0.6)" stroke-width="1"/>
+      <ellipse cx="72" cy="106" rx="36" ry="8.5" fill="rgba(210,228,235,0.78)" stroke="rgba(176,196,204,0.55)" stroke-width="1"/>
+      <ellipse cx="67" cy="120" rx="34" ry="8"  fill="rgba(200,220,228,0.75)" stroke="rgba(176,196,204,0.5)" stroke-width="1"/>
+      <ellipse cx="70" cy="134" rx="35" ry="8.5" fill="rgba(210,228,235,0.78)" stroke="rgba(176,196,204,0.55)" stroke-width="1"/>
+      <ellipse cx="78" cy="148" rx="36" ry="9"  fill="rgba(218,232,238,0.8)"  stroke="rgba(176,196,204,0.6)" stroke-width="1"/>
+      <!-- Sand-coloured base -->
+      <rect x="62" y="160" width="36" height="14" rx="4" fill="rgba(190,170,130,0.75)"/>
+      <rect x="66" y="174" width="28" height="8"  rx="3" fill="rgba(160,140,100,0.6)"/>
+      <!-- Floor shadow -->
+      <ellipse cx="80" cy="185" rx="28" ry="4" fill="rgba(176,196,204,0.12)"/>
     </svg>`,
   },
   {
@@ -196,22 +225,43 @@ const PRODUCTS: Product[] = [
     accentColor:"#8E9EA8",
     descDe:"Inspiriert von der rauen, zeitlosen Ästhetik alpiner Architektur. VALS besticht durch eine markante, horizontal geschichtete Geometrie, die aus einem massiven, anthrazitfarbenen Sockel emporsteigt. Die ultra-feine Perforation wirkt wie ein edler Lichtfilter, der jede Blendung eliminiert und stattdessen eine behagliche, architektonische Tiefe und präzise geometrische Schattenstrukturen im Raum entfaltet.",
     descEn:"Inspired by the raw, timeless aesthetics of alpine architecture. VALS features a striking, horizontally layered geometry that rises from a solid, charcoal-colored base. The ultra-fine perforation acts as a premium light filter, eliminating all glare and instead unfolding a cozy architectural depth and precise geometric shadow structures within the room.",
-    svgPath:`<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svgPath:`<svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="glow_vals"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <radialGradient id="vals_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#B8C8D0" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#8E9EA8" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur_vals"><feGaussianBlur stdDeviation="4"/></filter>
       </defs>
-      ${[0,1,2,3,4,5,6,7,8,9].map(i=>{
-        const y=48+i*14; const w=58-i*2.5;
-        const op=0.12+i*0.08;
-        return `<rect x="${(100-w).toFixed(0)}" y="${y}" width="${(w*2).toFixed(0)}" height="10" rx="1.5" fill="rgba(142,158,168,${op.toFixed(2)})"/>
-        ${[0,1,2,3,4,5,6,7,8].map(j=>{
-          const px=(100-w)+(j+0.5)*((w*2)/9);
-          return `<circle cx="${px.toFixed(1)}" cy="${(y+5).toFixed(1)}" r="1.2" fill="rgba(142,158,168,0.45)"/>`;
-        }).join("")}`;
-      }).join("")}
-      <rect x="88" y="188" width="24" height="22" rx="2.5" fill="rgba(50,60,70,0.82)" filter="url(#glow_vals)"/>
-      <rect x="93" y="210" width="14" height="5" rx="1" fill="rgba(50,60,70,0.55)"/>
-      <ellipse cx="100" cy="118" rx="22" ry="8" fill="rgba(142,158,168,0.12)" filter="url(#glow_vals)"/>
+      <!-- Glow -->
+      <rect x="28" y="28" width="104" height="140" rx="4" fill="url(#vals_glow)" filter="url(#blur_vals)"/>
+      <!-- Horizontal slabs — 9 layers, each slightly narrower going up, all lit from inside -->
+      <rect x="30" y="28"  width="100" height="14" rx="2" fill="rgba(200,215,222,0.88)"/>
+      <rect x="32" y="44"  width="96"  height="14" rx="2" fill="rgba(192,208,216,0.84)"/>
+      <rect x="34" y="60"  width="92"  height="14" rx="2" fill="rgba(185,202,210,0.82)"/>
+      <rect x="36" y="76"  width="88"  height="14" rx="2" fill="rgba(178,196,204,0.80)"/>
+      <rect x="38" y="92"  width="84"  height="14" rx="2" fill="rgba(170,188,198,0.78)"/>
+      <rect x="40" y="108" width="80"  height="14" rx="2" fill="rgba(162,180,190,0.75)"/>
+      <rect x="42" y="124" width="76"  height="14" rx="2" fill="rgba(154,172,182,0.72)"/>
+      <!-- Perforation dots on each slab -->
+      <circle cx="54"  cy="35"  r="1.4" fill="rgba(60,80,90,0.5)"/>
+      <circle cx="68"  cy="35"  r="1.4" fill="rgba(60,80,90,0.5)"/>
+      <circle cx="82"  cy="35"  r="1.4" fill="rgba(60,80,90,0.5)"/>
+      <circle cx="96"  cy="35"  r="1.4" fill="rgba(60,80,90,0.5)"/>
+      <circle cx="110" cy="35"  r="1.4" fill="rgba(60,80,90,0.5)"/>
+      <circle cx="56"  cy="51"  r="1.4" fill="rgba(60,80,90,0.45)"/>
+      <circle cx="70"  cy="51"  r="1.4" fill="rgba(60,80,90,0.45)"/>
+      <circle cx="84"  cy="51"  r="1.4" fill="rgba(60,80,90,0.45)"/>
+      <circle cx="98"  cy="51"  r="1.4" fill="rgba(60,80,90,0.45)"/>
+      <circle cx="58"  cy="67"  r="1.3" fill="rgba(60,80,90,0.4)"/>
+      <circle cx="72"  cy="67"  r="1.3" fill="rgba(60,80,90,0.4)"/>
+      <circle cx="86"  cy="67"  r="1.3" fill="rgba(60,80,90,0.4)"/>
+      <circle cx="100" cy="67"  r="1.3" fill="rgba(60,80,90,0.4)"/>
+      <!-- Charcoal base -->
+      <rect x="44" y="140" width="72" height="22" rx="3" fill="rgba(38,48,55,0.92)"/>
+      <rect x="50" y="162" width="60" height="10" rx="2" fill="rgba(28,36,42,0.88)"/>
+      <!-- Floor shadow -->
+      <ellipse cx="80" cy="174" rx="38" ry="5" fill="rgba(142,158,168,0.15)"/>
     </svg>`,
   },
   {
@@ -221,26 +271,41 @@ const PRODUCTS: Product[] = [
     accentColor:"#D4B8A0",
     descDe:"Die Verkörperung von fliessender Poesie und subtilem Luxus. Mit ihrer sanft asymmetrischen, vom Wind geformten Silhouette fängt AURA die Essenz natürlicher Bewegung ein. Das mikroperforierte Geflecht und der elegante, matte Sockel harmonieren perfekt, um ein absolut diffuses, sanftes Umgebungslicht zu erzeugen. Sie beleuchtet den Raum nicht nur – sie umhüllt ihn mit einer Aura von Ruhe und Exklusivität.",
     descEn:"The embodiment of flowing poetry and subtle luxury. With its softly asymmetrical, wind-sculpted silhouette, AURA captures the essence of natural movement. The micro-perforated mesh and elegant matte base harmonize perfectly to create an absolutely diffused, gentle ambient light. It doesn't just illuminate the room – it envelopes it in an aura of serenity and exclusivity.",
-    svgPath:`<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svgPath:`<svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <radialGradient id="aura_g" cx="44%" cy="38%" r="62%">
-          <stop offset="0%" stop-color="#F5E8D5"/>
-          <stop offset="50%" stop-color="#D4B8A0" stop-opacity="0.88"/>
-          <stop offset="100%" stop-color="#9A7B60" stop-opacity="0.15"/>
+        <radialGradient id="aura_g" cx="46%" cy="42%" r="54%">
+          <stop offset="0%" stop-color="#FFF0E0"/>
+          <stop offset="45%" stop-color="#DFC0A0"/>
+          <stop offset="100%" stop-color="#A07850" stop-opacity="0.3"/>
         </radialGradient>
-        <filter id="glow_aura"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <radialGradient id="aura_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F0D8B8" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#D4B8A0" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur_aura"><feGaussianBlur stdDeviation="5"/></filter>
       </defs>
-      <path d="M100 52 C130 57,150 80,142 108 C134 136,110 148,92 142 C70 134,55 112,62 87 C70 62,88 49,100 52Z" fill="url(#aura_g)" opacity="0.88" filter="url(#glow_aura)"/>
-      <path d="M100 56 C127 61,145 82,138 107 C131 131,109 142,93 136 C74 129,60 109,67 87 C74 65,90 53,100 56Z" fill="none" stroke="rgba(212,184,160,0.35)" stroke-width="0.8"/>
-      <circle cx="80" cy="88" r="2" fill="rgba(212,184,160,0.5)"/>
-      <circle cx="96" cy="72" r="2.8" fill="rgba(240,210,180,0.6)"/>
-      <circle cx="116" cy="80" r="1.8" fill="rgba(212,184,160,0.45)"/>
-      <circle cx="122" cy="102" r="2" fill="rgba(212,184,160,0.4)"/>
-      <circle cx="108" cy="120" r="1.6" fill="rgba(212,184,160,0.38)"/>
-      <circle cx="86" cy="118" r="1.6" fill="rgba(212,184,160,0.38)"/>
-      <ellipse cx="100" cy="100" rx="14" ry="12" fill="rgba(255,230,200,0.22)" filter="url(#glow_aura)"/>
-      <path d="M95 142 Q97 175 96 208" stroke="#221e1a" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-      <ellipse cx="97" cy="213" rx="11" ry="4.5" fill="rgba(50,42,34,0.55)"/>
+      <!-- Glow halo -->
+      <ellipse cx="82" cy="82" rx="55" ry="58" fill="url(#aura_glow)" filter="url(#blur_aura)"/>
+      <!-- Asymmetric wind-sculpted body -->
+      <path d="M82 22 C112 26, 136 50, 130 82 C124 114, 104 132, 84 128 C60 122, 40 100, 44 72 C48 44, 62 20, 82 22 Z" fill="url(#aura_g)"/>
+      <!-- Micro-mesh lines -->
+      <path d="M82 22 C112 26, 136 50, 130 82 C124 114, 104 132, 84 128 C60 122, 40 100, 44 72 C48 44, 62 20, 82 22 Z" fill="none" stroke="rgba(200,170,130,0.4)" stroke-width="1"/>
+      <path d="M70 26 C96 30, 118 52, 114 80 C110 108, 94 124, 76 122" fill="none" stroke="rgba(200,170,130,0.25)" stroke-width="0.8"/>
+      <path d="M58 36 C80 38, 102 58, 100 84 C98 110, 84 124, 66 118" fill="none" stroke="rgba(200,170,130,0.2)" stroke-width="0.7"/>
+      <!-- Horizontal mesh lines -->
+      <path d="M48 60 Q88 54, 128 64"  fill="none" stroke="rgba(180,148,108,0.3)" stroke-width="0.8"/>
+      <path d="M44 76 Q86 68, 130 78"  fill="none" stroke="rgba(180,148,108,0.28)" stroke-width="0.8"/>
+      <path d="M44 92 Q84 86, 128 94"  fill="none" stroke="rgba(180,148,108,0.25)" stroke-width="0.7"/>
+      <path d="M46 108 Q80 104, 122 110" fill="none" stroke="rgba(180,148,108,0.22)" stroke-width="0.7"/>
+      <!-- Bright inner glow -->
+      <ellipse cx="84" cy="76" rx="22" ry="20" fill="rgba(255,240,210,0.45)"/>
+      <!-- Thin stem -->
+      <path d="M80 128 Q79 152 79 168" stroke="rgba(40,32,24,0.85)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <!-- Matte base -->
+      <ellipse cx="80" cy="172" rx="22" ry="7" fill="rgba(50,40,30,0.82)"/>
+      <ellipse cx="80" cy="174" rx="18" ry="5" fill="rgba(38,30,22,0.7)"/>
+      <!-- Floor shadow -->
+      <ellipse cx="80" cy="180" rx="30" ry="4.5" fill="rgba(212,184,160,0.14)"/>
     </svg>`,
   },
 ];
